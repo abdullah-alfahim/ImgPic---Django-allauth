@@ -65,6 +65,7 @@
             transition: all 0.3s ease-in-out;
         }
 
+
         .body {
             width: 100%;
             height: auto;
@@ -72,41 +73,60 @@
             justify-content: center;
             align-items: center;
             margin-top: 10vh;
+
         }
 
-        .inner_body {
-            width: 80%;
-            display: grid;
-            row-gap: 20px;
-            grid-template-columns: repeat(3, 1fr); 
-            grid-template-rows: auto; 
+        .img_form {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
-        .img_card {
-            width: 25vw;
-            margin: 10px;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(2, 2, 2, 0.1);
+        .img_form p {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        .img_form label {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        .img_form input[type="text"] {
+            width: 40vw;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .img_form input[type="file"] {
+            width: 40vw;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .img_form input[type="submit"], .img_form input[type="button"] {
+            padding: 10px 40px;
             background-color: #fff;
-            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
-        .img_card img {
-            border-radius: 10px;
-            margin-bottom: 10px;
-            max-width: 100%;
+        .img_form input[type="submit"]:hover, .img_form input[type="button"]:hover {
+            background-color: #000000;
+            color: #fff;
+            transition: all 0.2s ease-in-out;
         }
 
-        .img_card h2 {
-            font-family: 'Lexend Deca', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-        .img_card p {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
-            color: #333;
-        }
+
         footer {
+            margin-top: calc(45vh - 10vh);
             width: 100%;
             height: 10vh;
             background-color: black;
@@ -126,8 +146,8 @@
             </div>
             <div class="menu_area">
                 <ul>
-                    <li class="page_active"><a href="{% url 'img_list' %}">Home</a></li>
-                    <li><a href="{% url 'img_add' %}">Add</a></li>
+                    <li ><a href="{% url 'img_list' %}">Home</a></li>
+                    <li class="page_active"><a href="{% url 'img_add' %}">Add</a></li>
                     <li><a href="">Profile</a></li>
                     {% if user.is_authenticated %}
                         <li><a href="">Logout</a></li>
@@ -140,17 +160,11 @@
     </header>
 
     <div class="body">
-        <div class="inner_body">
-            {%for i in images%}
-            <div class="img_card">
-                <img src="{{ i.image.url }}" alt="{{ i.heading }}" style="width: 100%; height: auto;">
-                <h2>{{ i.heading }}</h2>
-                <p>Uploaded by: {{ i.user.username }}</p>
-                <p>Uploaded on: {{ i.date }}</p>
-            </div>
-            {% endfor %}
-        
-        </div>
+        <form class="img_form" action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Submit">
+        </form>
     </div>
 
 
