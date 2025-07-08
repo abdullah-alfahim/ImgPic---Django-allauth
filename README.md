@@ -1,0 +1,2 @@
+Man it was one of my hardest project yet, i faced too many bugs in my code, man totally given up on it, but at the end it is finighed. Although, some of the desigening left, not that important.
+Here is the initial desigen idea of the project: https://www.canva.com/design/DAGsRdfhVeY/QYt1q_SomB5JNr_bP2LlUw/edit?utm_content=DAGsRdfhVeY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
