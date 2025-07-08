@@ -27,7 +27,7 @@ class Imgs(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='images')
     heading = models.CharField(max_length=20)
     date = models.DateField(auto_now_add=True)
-    image = models.ImageField(upload_to='images', blank=True, null=True)
+    image = models.ImageField(upload_to='images')
 
     def __str__(self):
         return f"{self.user.username} - {self.heading} ({self.date})"
