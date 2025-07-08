@@ -3,7 +3,7 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from .models import Imgs
 from django.urls import reverse_lazy
 
-# Create your views here.
+
 
 
 class ImgListView(ListView):

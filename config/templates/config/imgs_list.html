@@ -130,7 +130,7 @@
                     <li><a href="{% url 'img_add' %}">Add</a></li>
                     <li><a href="{% url 'user_img_list' %}">Profile</a></li>
                     {% if user.is_authenticated %}
-                        <li><a href="">Logout</a></li>
+                        <li><a href="{% url 'account_logout' %}">Logout</a></li>
                     {% else %}
                         <li><a href="{% url 'account_login' %}">Login</a></li>
                     {% endif %}
