@@ -81,7 +81,7 @@ python -m venv venv
 source venv/bin/activate   # Windows: venv\Scripts\activate
 
 # 3. Install dependencies
-pip install django django-allauth pillow
+pip install -r requirements.txt
 
 # 4. Apply database migrations
 python manage.py migrate
